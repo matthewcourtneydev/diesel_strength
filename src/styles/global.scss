@@ -1,0 +1,69 @@
+@use './base/reset';
+@use './base/typography' as baseTypography;
+
+@use './variables/colors';
+@use './variables/spacing';
+@use './variables/breakpoints';
+@use './variables/typography' as typographyVars;
+
+@use './utilities/helpers';
+@use './utilities/layout';
+
+@use './animations/transitions';
+@use './animations/hover-effects';
+
+@use './variables/colors' as *;
+@use './variables/typography' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    transform 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn--primary {
+  background: $diesel-red;
+  color: $white;
+
+  &:hover {
+    background: lighten($diesel-red, 6%);
+  }
+}
+
+.btn--secondary {
+  background: transparent;
+  color: $white;
+  border-color: rgba($white, 0.28);
+
+  &:hover {
+    border-color: $diesel-red;
+    color: $diesel-red;
+  }
+}
+
+.page-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba($diesel-red, 0.1), transparent 34rem),
+    linear-gradient(180deg, $black, $near-black);
+}

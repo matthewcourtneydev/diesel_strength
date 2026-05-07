@@ -1,0 +1,29 @@
+@use '../variables/spacing' as *;
+
+.container {
+  width: min(100% - 2rem, $container-xl);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: $section-md;
+}
+
+.section--large {
+  padding-block: $section-lg;
+}
+
+.grid {
+  display: grid;
+  gap: $space-lg;
+}
+
+.two-column {
+  display: grid;
+  gap: $space-xl;
+  align-items: center;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
