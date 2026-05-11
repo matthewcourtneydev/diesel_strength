@@ -1,0 +1,42 @@
+@use '../../styles/variables/colors' as *;
+@use '../../styles/variables/spacing' as *;
+
+.programs-page {
+  min-height: 100vh;
+
+  &__filters {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba($black, 0.98),
+        rgba($black, 0.94)
+      );
+
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba($white, 0.04);
+    border-bottom: 1px solid rgba($white, 0.08);
+  }
+
+  main > section:not(:first-child) {
+    position: relative;
+  }
+
+  main > section:not(:first-child)::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: min(100% - 2rem, 1320px);
+    height: 1px;
+
+    background: rgba($white, 0.045);
+
+    transform: translateX(-50%);
+  }
+}

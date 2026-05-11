@@ -1,0 +1,32 @@
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/colors' as *;
+
+.section-wrapper {
+  position: relative;
+  padding-block: $section-md;
+
+  &--sm {
+    padding-block: $section-sm;
+  }
+
+  &--md {
+    padding-block: $section-md;
+  }
+
+  &--lg {
+    padding-block: $section-lg;
+  }
+
+  &--xl {
+    padding-block: $section-xl;
+  }
+
+  &--dark {
+    background:
+      linear-gradient(
+        180deg,
+        rgba($graphite, 0.95),
+        rgba($black, 0.95)
+      );
+  }
+}

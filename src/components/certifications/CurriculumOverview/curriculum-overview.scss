@@ -1,0 +1,187 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.curriculum-overview {
+  display: grid;
+  gap: $space-2xl;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  &__content {
+    max-width: 52rem;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+  }
+
+  &__description {
+    max-width: 44rem;
+
+    margin-top: $space-lg;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-lg;
+    line-height: 1.6;
+  }
+
+  &__sidebar {
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+.curriculum-modules {
+  display: grid;
+  gap: $space-md;
+
+  margin-top: $space-2xl;
+}
+
+.curriculum-module {
+  display: grid;
+  gap: $space-lg;
+
+  padding: $space-lg;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  @media (min-width: 700px) {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+
+  &__number {
+    color: rgba($diesel-red, 0.85);
+
+    font-family: $font-heading;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 0.85;
+  }
+
+  h3 {
+    margin-bottom: $space-sm;
+
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    line-height: 0.95;
+  }
+
+  p {
+    color: rgba($white, 0.66);
+
+    line-height: 1.6;
+  }
+}
+
+.curriculum-panel {
+  overflow: hidden;
+
+  padding: $space-xl;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.12),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    0 0 60px rgba($diesel-red, 0.06);
+
+  &__eyebrow {
+    display: inline-flex;
+
+    margin-bottom: $space-md;
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-bottom: $space-lg;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 0.95;
+  }
+
+  &__topics {
+    display: grid;
+    gap: $space-sm;
+
+    margin:
+      0
+      0
+      $space-xl;
+
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      position: relative;
+
+      padding-left: 1.25rem;
+
+      color: rgba($white, 0.74);
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+
+        width: 0.42rem;
+        height: 0.42rem;
+
+        background: $diesel-red;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .curriculum-overview {
+    &__sidebar {
+      position: relative;
+      top: auto;
+    }
+  }
+
+  .curriculum-panel {
+    padding: $space-lg;
+  }
+}

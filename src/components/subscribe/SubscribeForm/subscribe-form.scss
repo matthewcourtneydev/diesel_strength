@@ -1,0 +1,148 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.subscribe-form-section {
+  display: grid;
+  gap: $space-2xl;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+
+  &__content {
+    max-width: 42rem;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+
+    p:not(.eyebrow) {
+      max-width: 38rem;
+
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+
+      font-size: $text-lg;
+      line-height: 1.65;
+    }
+  }
+}
+
+.subscribe-form {
+  padding: $space-xl;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.12),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba($diesel-red, 0.06);
+
+  &__fields {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    margin-top: $space-lg;
+  }
+
+  &__note {
+    margin-top: $space-md;
+
+    color: rgba($white, 0.52);
+
+    font-size: $text-sm;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+.subscribe-field {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: $space-sm;
+
+    color: rgba($white, 0.82);
+
+    font-size: $text-sm;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  input {
+    width: 100%;
+
+    padding: 1rem;
+
+    border: 1px solid rgba($white, 0.08);
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba($black, 0.36),
+        rgba($near-black, 0.92)
+      );
+
+    color: $white;
+
+    font-size: $text-base;
+    line-height: 1.5;
+
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background 220ms ease;
+
+    &::placeholder {
+      color: rgba($white, 0.38);
+    }
+
+    &:focus {
+      outline: none;
+
+      border-color: rgba($diesel-red, 0.48);
+
+      box-shadow:
+        0 0 0 3px rgba($diesel-red, 0.08);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba($graphite, 1),
+          rgba($near-black, 1)
+        );
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .subscribe-form {
+    padding: $space-lg;
+  }
+}

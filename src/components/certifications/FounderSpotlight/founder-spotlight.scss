@@ -1,0 +1,147 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.founder-spotlight {
+  display: grid;
+  gap: $space-2xl;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 0.9fr;
+  }
+
+  &__content {
+    max-width: 48rem;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+  }
+
+  &__description {
+    max-width: 42rem;
+
+    margin-top: $space-lg;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-lg;
+    line-height: 1.6;
+  }
+
+  &__credentials {
+    display: grid;
+    gap: $space-md;
+
+    margin-top: $space-2xl;
+
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    div {
+      padding: $space-lg;
+
+      border: 1px solid rgba($white, 0.08);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba($graphite, 0.96),
+          rgba($near-black, 1)
+        );
+    }
+
+    strong {
+      display: block;
+
+      margin-bottom: $space-sm;
+
+      color: $diesel-red;
+
+      font-family: $font-heading;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    span {
+      color: rgba($white, 0.72);
+
+      font-size: $text-sm;
+      line-height: 1.45;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+
+    margin-top: $space-2xl;
+  }
+
+  &__visual {
+    position: relative;
+  }
+
+  &__image-placeholder {
+    position: relative;
+
+    aspect-ratio: 4 / 5;
+
+    border: 1px solid rgba($white, 0.08);
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($graphite, 1),
+        rgba($black, 1)
+      );
+
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.34),
+      0 0 60px rgba($diesel-red, 0.08);
+
+    overflow: hidden;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba($diesel-red, 0.12),
+          transparent 42%
+        );
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .founder-spotlight {
+    &__credentials {
+      grid-template-columns: 1fr;
+    }
+
+    &__actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}

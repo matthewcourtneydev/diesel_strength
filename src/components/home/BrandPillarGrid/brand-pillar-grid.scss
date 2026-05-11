@@ -1,0 +1,207 @@
+@use "../../../styles/variables/colors" as *;
+@use "../../../styles/variables/spacing" as *;
+@use "../../../styles/variables/typography" as *;
+
+.brand-pillar-grid {
+  &__heading {
+    max-width: 40rem;
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.9;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.brand-pillar-card {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 28rem;
+
+  border: 1px solid rgba($white, 0.08);
+  background: $near-black;
+
+  transition: transform 220ms ease, border-color 220ms ease,
+    box-shadow 220ms ease;
+  &:hover {
+    border-color: rgba($diesel-red, 0.32);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba($diesel-red, 0.05);
+
+    .brand-pillar-card__image {
+      transform: scale(1.04);
+    }
+
+    .brand-pillar-card__overlay {
+      opacity: 0.35;
+    }
+  }
+  &--diesel-strength {
+    .brand-pillar-card__logo {
+      width: 54%;
+    }
+  }
+
+  &--ageless-athlete {
+    .brand-pillar-card__logo {
+      width: 42%;
+    }
+  }
+
+  &--cpps {
+    .brand-pillar-card__logo {
+      width: 48%;
+    }
+  }
+
+  &--becoming-ronin {
+    .brand-pillar-card__logo {
+      width: 34%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(0.58) contrast(1.08) saturate(0.9);
+
+    transition: transform 500ms ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  
+    background:
+      linear-gradient(
+        180deg,
+        rgba($black, 0.18) 0%,
+        rgba($black, 0.42) 48%,
+        rgba($black, 0.92) 100%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.12),
+        transparent 42%
+      );
+  
+    transition: opacity 320ms ease;
+  }
+
+  &__logo {
+    position: absolute;
+    top: $space-lg;
+    left: 50%;
+    z-index: 3;
+
+    width: 52%;
+    max-width: 12rem;
+    max-height: 5rem;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: translateX(-50%);
+
+    filter: drop-shadow(0 10px 18px rgba($black, 0.65));
+
+    pointer-events: none;
+  }
+
+  &__content {
+    position: absolute;
+    inset: auto 0 0 0;
+
+    z-index: 2;
+
+    padding: $space-lg;
+  }
+
+  h3 {
+    margin-bottom: $space-sm;
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 0.92;
+  }
+
+  p {
+    max-width: 18rem;
+
+    margin-bottom: $space-md;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-sm;
+    line-height: 1.45;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+
+    color: $white;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    transition: color 220ms ease, transform 220ms ease;
+
+    &::after {
+      content: "→";
+      margin-left: 0.45rem;
+      color: $diesel-red;
+      transition: transform 220ms ease;
+    }
+
+    &:hover {
+      color: $diesel-red;
+
+      &::after {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+@media (max-width: 899px) {
+  .brand-pillar-grid {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-pillar-grid {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .brand-pillar-card {
+    min-height: 26rem;
+  }
+}

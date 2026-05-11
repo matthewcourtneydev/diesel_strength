@@ -1,0 +1,178 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+
+  border-bottom: 1px solid rgba($white, 0.08);
+
+  background: rgba($black, 0.82);
+  backdrop-filter: blur(18px);
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease;
+
+  &--scrolled {
+    background: rgba($black, 0.94);
+    border-color: rgba($white, 0.12);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 5.25rem;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    color: $white;
+    text-decoration: none;
+  }
+
+  &__logo-mark {
+    width: 2.25rem;
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+      drop-shadow(0 0 12px rgba($diesel-red, 0.2));
+  }
+
+  &__logo-text {
+    font-family: $font-heading;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 2.4vw, 2.5rem);
+
+    a {
+      color: $white;
+
+      font-family: $font-heading;
+      font-size: $text-xs;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+
+      transition: color 200ms ease;
+
+      &:hover,
+      &.router-link-active {
+        color: $diesel-red;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__search {
+    color: rgba($white, 0.72);
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition: color 200ms ease;
+
+    &:hover {
+      color: $diesel-red;
+    }
+  }
+
+  &__menu-button {
+    display: none;
+
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+
+    border: 1px solid rgba($white, 0.14);
+    background: transparent;
+
+    color: $white;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 1024px) {
+  .site-header {
+    &__nav,
+    &__search {
+      display: none;
+    }
+
+    &__menu-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__inner {
+      min-height: 4.75rem;
+    }
+
+    &__logo-mark {
+      width: 2rem;
+    }
+
+    &__logo-text {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    &__inner {
+      min-height: 4.5rem;
+    }
+
+    &__logo {
+      gap: 0.6rem;
+    }
+
+    &__logo-mark {
+      width: 1.8rem;
+    }
+
+    &__logo-text {
+      font-size: 1.15rem;
+    }
+
+    .btn--primary {
+      padding-inline: 1rem;
+      font-size: 0.72rem;
+    }
+
+    &__menu-button {
+      padding-inline: 0.9rem;
+      font-size: 0.72rem;
+    }
+  }
+}

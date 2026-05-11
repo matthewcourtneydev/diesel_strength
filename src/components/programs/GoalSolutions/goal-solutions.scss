@@ -1,0 +1,158 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.goal-solutions {
+  &__heading {
+    max-width: 58rem;
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      max-width: 42rem;
+      margin-top: $space-lg;
+      color: rgba($white, 0.72);
+      font-size: $text-lg;
+      line-height: 1.55;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1180px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+.goal-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 20rem;
+
+  padding: $space-xl;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.1),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.95),
+      rgba($near-black, 1)
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 3px;
+
+    background: rgba($diesel-red, 0.8);
+
+    transform: scaleY(0);
+    transform-origin: bottom;
+
+    transition: transform 240ms ease;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+
+  &__icon {
+    margin-bottom: $space-lg;
+
+    color: $diesel-red;
+
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  h3 {
+    margin-bottom: $space-md;
+
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    line-height: 0.95;
+  }
+
+  p {
+    margin-bottom: $space-xl;
+
+    color: rgba($white, 0.66);
+    font-size: $text-sm;
+    line-height: 1.55;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+    margin-top: auto;
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    &::after {
+      content: '→';
+      margin-left: 0.5rem;
+      transition: transform 220ms ease;
+    }
+
+    &:hover::after {
+      transform: translateX(4px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .goal-solutions {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+
+    &__grid {
+      gap: $space-md;
+    }
+  }
+
+  .goal-card {
+    min-height: auto;
+    padding: $space-lg;
+
+    &__icon {
+      margin-bottom: $space-md;
+    }
+
+    p {
+      margin-bottom: $space-lg;
+    }
+  }
+}

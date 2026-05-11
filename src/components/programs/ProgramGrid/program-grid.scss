@@ -1,0 +1,227 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.program-grid-section {
+  &__heading {
+    max-width: 56rem;
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      max-width: 42rem;
+      margin-top: $space-lg;
+      color: rgba($white, 0.72);
+      font-size: $text-lg;
+      line-height: 1.55;
+    }
+  }
+}
+
+.program-grid {
+  display: grid;
+  gap: $space-lg;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1180px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.program-card {
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba($diesel-red, 0.42);
+
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.38),
+      0 0 34px rgba($diesel-red, 0.06);
+
+    .program-card__image-placeholder {
+      transform: scale(1.04);
+    }
+
+    .program-card__link::after {
+      transform: translateX(4px);
+    }
+  }
+
+  &__media {
+    overflow: hidden;
+  }
+
+  &__image-placeholder {
+    aspect-ratio: 16 / 10;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($dark-grey, 1),
+        rgba($graphite, 1)
+      );
+
+    transition: transform 560ms ease;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding: $space-lg;
+  }
+
+  &__category {
+    display: inline-flex;
+    align-self: flex-start;
+
+    margin-bottom: $space-sm;
+    padding: 0.35rem 0.55rem;
+
+    border: 1px solid rgba($diesel-red, 0.35);
+    background: rgba($diesel-red, 0.08);
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-bottom: $space-sm;
+
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    line-height: 0.95;
+  }
+
+  p {
+    margin-bottom: $space-lg;
+
+    color: rgba($white, 0.66);
+    font-size: $text-sm;
+    line-height: 1.55;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+    margin-top: auto;
+
+    color: $white;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    transition:
+      color 220ms ease,
+      transform 220ms ease;
+
+    &::after {
+      content: '→';
+      margin-left: 0.5rem;
+      transition: transform 220ms ease;
+    }
+
+    &:hover {
+      color: $diesel-red;
+      transform: translateX(4px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .program-grid-section {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+  }
+
+  .program-card {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+
+    &__image-placeholder {
+      height: 100%;
+      min-height: 11rem;
+      aspect-ratio: auto;
+    }
+
+    &__content {
+      padding: $space-md;
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 6vw, 1.5rem);
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  .program-grid {
+    gap: $space-md;
+  }
+}
+
+
+.program-card-fade-move,
+.program-card-fade-enter-active,
+.program-card-fade-leave-active {
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.program-card-fade-enter-from,
+.program-card-fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.program-card-fade-leave-active {
+  position: absolute;
+}

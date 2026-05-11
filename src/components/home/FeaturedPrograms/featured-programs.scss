@@ -1,0 +1,244 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.featured-programs {
+  &__heading {
+    margin-bottom: $space-2xl;
+  }
+
+  &__heading-row {
+    display: flex;
+    gap: $space-lg;
+    align-items: end;
+    justify-content: space-between;
+
+    h2 {
+      max-width: 56rem;
+      margin-top: $space-sm;
+
+      font-size: clamp(2.2rem, 5vw, 4.25rem);
+      line-height: 0.9;
+    }
+
+    p {
+      max-width: 42rem;
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+      font-size: $text-lg;
+      line-height: 1.55;
+    }
+  }
+
+  &__view-all {
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &::after {
+      content: '→';
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.program-card {
+  position: relative;
+  min-height: clamp(26rem, 36vw, 34rem);
+  height: 100%;
+
+
+  overflow: hidden;
+
+  border: 1px solid rgba($white, 0.08);
+  background: $near-black;
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($diesel-red, 0.4);
+
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.36),
+      0 0 38px rgba($diesel-red, 0.06);
+
+    img {
+      transform: scale(1.045);
+
+      filter:
+        brightness(0.86)
+        contrast(1.08)
+        saturate(1);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+  
+    img {
+      width: 100%;
+      height: 100%;
+  
+      object-fit: cover;
+      object-position: left center;
+  
+      filter:
+        brightness(0.68)
+        contrast(1.08)
+        saturate(0.92);
+  
+      transition:
+        transform 600ms ease,
+        filter 400ms ease;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba($black, 0.08) 0%,
+        rgba($black, 0.36) 42%,
+        rgba($black, 0.94) 100%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.12),
+        transparent 46%
+      );
+  }
+
+  &__content {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+
+    padding: $space-xl;
+  }
+
+  &__category {
+    display: inline-flex;
+
+    margin-bottom: $space-md;
+    padding: 0.35rem 0.65rem;
+
+    border: 1px solid rgba($diesel-red, 0.36);
+    background: rgba($diesel-red, 0.08);
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 22rem;
+    margin-bottom: $space-md;
+
+    font-size: clamp(1.65rem, 3vw, 2.45rem);
+    line-height: 0.92;
+  }
+
+  p {
+    max-width: 24rem;
+    margin-bottom: $space-lg;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-sm;
+    line-height: 1.5;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    transition:
+      color 220ms ease,
+      transform 220ms ease;
+
+    &::after {
+      content: '→';
+      margin-left: 0.5rem;
+      transition: transform 220ms ease;
+    }
+
+    &:hover {
+      color: $white;
+      transform: translateX(4px);
+
+      &::after {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .featured-programs {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+
+    &__heading-row {
+      display: block;
+
+      h2 {
+        font-size: clamp(2rem, 10vw, 3.25rem);
+      }
+    }
+
+    &__view-all {
+      display: inline-flex;
+      margin-top: $space-md;
+    }
+  }
+
+  .program-card {
+    min-height: 28rem;
+
+    &__content {
+      padding: $space-lg;
+    }
+  }
+}
+
+.program-card {
+  min-height: clamp(26rem, 36vw, 34rem) !important;
+  height: auto;
+}

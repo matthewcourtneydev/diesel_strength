@@ -1,0 +1,158 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.seminar-experience {
+  display: grid;
+  gap: $space-2xl;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__content {
+    max-width: 44rem;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+  }
+
+  &__description {
+    margin-top: $space-lg;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-lg;
+    line-height: 1.6;
+  }
+
+  &__highlights {
+    display: grid;
+    gap: $space-sm;
+
+    margin:
+      $space-xl
+      0
+      0;
+
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      position: relative;
+
+      padding-left: 1.4rem;
+
+      color: rgba($white, 0.72);
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+
+        width: 0.45rem;
+        height: 0.45rem;
+
+        background: $diesel-red;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+
+    margin-top: $space-xl;
+  }
+}
+
+.seminar-collage {
+  display: grid;
+  gap: $space-md;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  &__primary,
+  &__card {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba($white, 0.08);
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($dark-grey, 1),
+        rgba($graphite, 1)
+      );
+
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.28),
+      0 0 34px rgba($diesel-red, 0.05);
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba($diesel-red, 0.12),
+          transparent 42%
+        );
+    }
+  }
+
+  &__primary {
+    min-height: 34rem;
+  }
+
+  &__secondary {
+    display: grid;
+    gap: $space-md;
+  }
+
+  &__card {
+    min-height: 16.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .seminar-experience {
+    &__actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  .seminar-collage {
+    &__primary {
+      min-height: 20rem;
+    }
+
+    &__card {
+      min-height: 12rem;
+    }
+  }
+}

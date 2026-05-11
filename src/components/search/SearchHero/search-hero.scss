@@ -1,0 +1,161 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.search-hero {
+  display: grid;
+  gap: $space-2xl;
+
+  padding-top: clamp(8rem, 12vw, 11rem);
+
+  &__content {
+    max-width: 64rem;
+
+    h1 {
+      margin-top: $space-sm;
+
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.88;
+    }
+
+    p:last-child {
+      max-width: 46rem;
+
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+
+      font-size: $text-lg;
+      line-height: 1.65;
+    }
+  }
+
+  &__search {
+    display: grid;
+    gap: $space-xl;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+  }
+}
+
+.search-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    min-height: 5rem;
+
+    padding:
+      0
+      1.5rem
+      0
+      4.5rem;
+
+    border: 1px solid rgba($white, 0.08);
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.08),
+        transparent 40%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($graphite, 0.98),
+        rgba($near-black, 1)
+      );
+
+    color: $white;
+
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+
+    &::placeholder {
+      color: rgba($white, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+
+      border-color: rgba($diesel-red, 0.42);
+
+      box-shadow:
+        0 0 0 4px rgba($diesel-red, 0.08);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+
+    color: rgba($white, 0.44);
+
+    font-size: 1.4rem;
+
+    transform: translateY(-50%);
+  }
+}
+
+.search-tag {
+  min-height: 2.6rem;
+  padding: 0 0.95rem;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background: rgba($black, 0.2);
+
+  color: rgba($white, 0.7);
+
+  font-family: $font-heading;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    border-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba($diesel-red, 0.4);
+
+    color: $white;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-hero {
+    gap: $space-xl;
+
+    &__search {
+      gap: $space-lg;
+    }
+  }
+
+  .search-input {
+    input {
+      min-height: 4.25rem;
+
+      padding:
+        0
+        1.25rem
+        0
+        3.75rem;
+    }
+
+    &__icon {
+      left: 1.2rem;
+    }
+  }
+}

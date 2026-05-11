@@ -1,0 +1,52 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.footer-nav {
+  display: grid;
+  gap: $space-xl;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__group {
+    h3 {
+      margin-bottom: $space-md;
+
+      color: $diesel-red;
+
+      font-family: $font-heading;
+      font-size: $text-xs;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: grid;
+      gap: $space-sm;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    a {
+      color: rgba($white, 0.66);
+
+      font-size: $text-sm;
+      line-height: 1.4;
+
+      transition:
+        color 220ms ease,
+        transform 220ms ease;
+
+      &:hover {
+        color: $white;
+        transform: translateX(4px);
+      }
+    }
+  }
+}

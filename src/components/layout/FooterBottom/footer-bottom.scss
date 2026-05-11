@@ -1,0 +1,62 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.footer-bottom {
+  display: grid;
+  gap: $space-lg;
+
+  padding-top: $space-xl;
+  padding-bottom: $space-xl;
+
+  border-top: 1px solid rgba($white, 0.06);
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+  }
+
+  &__copyright {
+    color: rgba($white, 0.44);
+
+    font-size: $text-xs;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__links,
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+  }
+
+  a {
+    color: rgba($white, 0.52);
+
+    font-size: $text-xs;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+      color 220ms ease,
+      transform 220ms ease;
+
+    &:hover {
+      color: $white;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-bottom {
+    gap: $space-md;
+
+    &__links,
+    &__social {
+      gap: $space-sm;
+    }
+  }
+}

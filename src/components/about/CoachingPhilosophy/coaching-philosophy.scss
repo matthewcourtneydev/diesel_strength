@@ -1,0 +1,121 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.coaching-philosophy {
+  &__heading {
+    max-width: 60rem;
+
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      max-width: 42rem;
+
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+
+      font-size: $text-lg;
+      line-height: 1.65;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.philosophy-card {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 20rem;
+
+  padding: $space-xl;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.1),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba($diesel-red, 0.4);
+
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.34),
+      0 0 34px rgba($diesel-red, 0.06);
+  }
+
+  &__number {
+    display: inline-flex;
+
+    margin-bottom: $space-xl;
+
+    color: rgba($diesel-red, 0.82);
+
+    font-family: $font-heading;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 0.9;
+  }
+
+  h3 {
+    margin-bottom: $space-md;
+
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 0.95;
+  }
+
+  p {
+    color: rgba($white, 0.68);
+
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 767px) {
+  .coaching-philosophy {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+
+    &__grid {
+      gap: $space-md;
+    }
+  }
+
+  .philosophy-card {
+    min-height: auto;
+
+    padding: $space-lg;
+  }
+}

@@ -1,0 +1,132 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.newsletter-cta {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr 1.15fr;
+  gap: $space-xl;
+  align-items: center;
+
+  min-height: 10.5rem;
+  padding: $space-lg $space-xl;
+
+  overflow: hidden;
+
+  border: 1px solid rgba($white, 0.12);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba($diesel-red, 0.18) 0%,
+      rgba($black, 0.18) 20%,
+      rgba($black, 0.62) 48%,
+      rgba($black, 0.88) 100%
+    ),
+    url('../../../assets/images/subscribe-cta-background.png')
+    left top / cover no-repeat;
+
+  &__spacer,
+  &__content,
+  &__form {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    h2 {
+      max-width: 44rem;
+
+      font-size: clamp(1.7rem, 2.4vw, 2.55rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      max-width: 36rem;
+
+      margin-top: $space-sm;
+
+      color: rgba($white, 0.76);
+
+      font-size: $text-base;
+      line-height: 1.45;
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: $space-sm;
+
+    span {
+      color: rgba($white, 0.72);
+
+      font-family: $font-heading;
+      font-size: $text-sm;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &__field-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: $space-sm;
+
+    input {
+      height: 2.9rem;
+      padding: 0 $space-md;
+
+      font-size: 0.9rem;
+
+      border: 1px solid rgba($white, 0.14);
+      background: rgba($black, 0.42);
+
+      color: $white;
+      outline: none;
+
+      &::placeholder {
+        color: rgba($white, 0.48);
+      }
+    }
+
+    .btn {
+      min-width: 4rem;
+      width: 7rem;
+      height: 2.9rem;
+      padding: 0 1.25rem;
+
+      font-size: 0.70rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .newsletter-cta {
+    grid-template-columns: 1fr;
+    background-position: left center;
+
+    &__spacer {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .newsletter-cta {
+    padding: $space-lg;
+
+    &__field-row {
+      grid-template-columns: 1fr;
+    }
+
+    &__field-row .btn {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+}

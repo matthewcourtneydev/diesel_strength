@@ -1,0 +1,140 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.ecosystem-timeline {
+  &__heading {
+    max-width: 62rem;
+
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      max-width: 44rem;
+
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+
+      font-size: $text-lg;
+      line-height: 1.65;
+    }
+  }
+}
+
+.timeline {
+  position: relative;
+
+  display: grid;
+  gap: $space-xl;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9rem;
+
+    width: 1px;
+
+    background: rgba($white, 0.08);
+  }
+}
+
+.timeline-item {
+  position: relative;
+
+  display: grid;
+  gap: $space-lg;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 9rem 1fr;
+    align-items: start;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0.65rem;
+    left: calc(9rem - 0.38rem);
+
+    width: 0.75rem;
+    height: 0.75rem;
+
+    background: $diesel-red;
+
+    border-radius: 999px;
+
+    box-shadow:
+      0 0 0 6px rgba($diesel-red, 0.08);
+  }
+
+  &__year {
+    color: rgba($diesel-red, 0.82);
+
+    font-family: $font-heading;
+    font-size: $text-sm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    padding:
+      0
+      0
+      $space-xl
+      $space-xl;
+
+    border-bottom: 1px solid rgba($white, 0.06);
+
+    h3 {
+      margin-bottom: $space-sm;
+
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 0.95;
+    }
+
+    p {
+      max-width: 42rem;
+
+      color: rgba($white, 0.68);
+
+      line-height: 1.65;
+    }
+  }
+}
+
+@media (max-width: 899px) {
+  .timeline {
+    gap: $space-lg;
+
+    &::before {
+      left: 0.32rem;
+    }
+  }
+
+  .timeline-item {
+    padding-left: $space-xl;
+
+    &::before {
+      left: 0;
+    }
+
+    &__content {
+      padding:
+        0
+        0
+        $space-lg
+        0;
+    }
+  }
+}

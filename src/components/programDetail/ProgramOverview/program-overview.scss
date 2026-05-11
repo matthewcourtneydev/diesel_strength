@@ -1,0 +1,356 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.program-overview {
+  display: grid;
+  gap: $space-2xl;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  &__content {
+    max-width: 48rem;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.92;
+    }
+  }
+
+  &__description {
+    max-width: 44rem;
+
+    margin-top: $space-lg;
+
+    color: rgba($white, 0.72);
+
+    font-size: $text-lg;
+    line-height: 1.6;
+  }
+
+  &__stats {
+    display: grid;
+    gap: $space-md;
+
+    margin-top: $space-2xl;
+
+    @media (min-width: 700px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+
+    margin-top: $space-2xl;
+  }
+
+  &__purchase {
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+.program-stat {
+  padding: $space-lg;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba($diesel-red, 0.28);
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.08),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($graphite, 0.98),
+        rgba($near-black, 1)
+      );
+  }
+
+  &__label {
+    display: block;
+
+    margin-bottom: $space-sm;
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    color: $white;
+
+    font-size: $text-base;
+    line-height: 1.4;
+  }
+}
+
+.purchase-card {
+  overflow: hidden;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.12),
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.34),
+    0 0 60px rgba($diesel-red, 0.08);
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba($diesel-red, 0.3);
+
+    box-shadow:
+      0 28px 70px rgba(0, 0, 0, 0.42),
+      0 0 72px rgba($diesel-red, 0.12);
+
+    .purchase-card__media img {
+      transform: scale(1.035);
+    }
+  }
+
+  &__media {
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 10;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba($diesel-red, 0.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba($dark-grey, 1),
+        rgba($black, 1)
+      );
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      right: -18%;
+      top: -20%;
+      z-index: 1;
+
+      width: 20rem;
+      height: 20rem;
+
+      background: rgba($diesel-red, 0.14);
+
+      filter: blur(80px);
+
+      pointer-events: none;
+    }
+
+    img {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center;
+
+      filter:
+        brightness(0.86)
+        contrast(1.08)
+        saturate(0.96);
+
+      transition: transform 700ms ease;
+    }
+  }
+
+  &__media-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba($black, 0.04) 0%,
+        rgba($black, 0.2) 48%,
+        rgba($black, 0.72) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba($black, 0.16) 0%,
+        rgba($black, 0) 45%,
+        rgba($black, 0.18) 100%
+      );
+
+    pointer-events: none;
+  }
+
+  &__body {
+    padding: $space-xl;
+  }
+
+  &__tag {
+    display: inline-flex;
+
+    margin-bottom: $space-md;
+    padding: 0.35rem 0.6rem;
+
+    border: 1px solid rgba($diesel-red, 0.3);
+    background: rgba($diesel-red, 0.08);
+
+    color: $diesel-red;
+
+    font-family: $font-heading;
+    font-size: $text-xs;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 28rem;
+
+    margin-bottom: $space-md;
+
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 0.95;
+  }
+
+  p {
+    max-width: 30rem;
+
+    color: rgba($white, 0.68);
+
+    line-height: 1.55;
+  }
+
+  &__price {
+    margin-top: $space-xl;
+
+    color: $white;
+
+    font-family: $font-heading;
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__features {
+    display: grid;
+    gap: $space-sm;
+
+    margin:
+      $space-xl
+      0;
+
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      position: relative;
+
+      padding-left: 1.4rem;
+
+      color: rgba($white, 0.76);
+
+      line-height: 1.45;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+
+        width: 0.45rem;
+        height: 0.45rem;
+
+        background: $diesel-red;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .program-overview {
+    &__stats {
+      grid-template-columns: 1fr;
+    }
+
+    &__actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    &__purchase {
+      position: relative;
+      top: auto;
+    }
+  }
+
+  .purchase-card {
+    &__media {
+      aspect-ratio: 16 / 11;
+    }
+
+    &__body {
+      padding: $space-lg;
+    }
+  }
+}

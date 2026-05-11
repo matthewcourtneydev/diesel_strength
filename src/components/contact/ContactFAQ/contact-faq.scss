@@ -1,0 +1,143 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.contact-faq {
+  &__heading {
+    max-width: 58rem;
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+      font-size: clamp(2.3rem, 5vw, 4.3rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      margin-top: $space-lg;
+      color: rgba($white, 0.72);
+      font-size: $text-lg;
+      line-height: 1.55;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: $space-md;
+  }
+}
+
+.contact-faq-item {
+  overflow: hidden;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+
+  &:hover {
+    border-color: rgba($diesel-red, 0.28);
+  }
+
+  &--active {
+    border-color: rgba($diesel-red, 0.42);
+
+    box-shadow:
+      0 14px 40px rgba(0, 0, 0, 0.2),
+      0 0 28px rgba($diesel-red, 0.04);
+  }
+
+  &__question {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-lg;
+
+    padding: $space-lg;
+
+    border: none;
+    background: transparent;
+
+    color: $white;
+    text-align: left;
+
+    cursor: pointer;
+
+    span:first-child {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.2;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    color: $diesel-red;
+
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &__answer {
+    padding:
+      0
+      $space-lg
+      $space-lg;
+
+    p {
+      max-width: 58rem;
+
+      color: rgba($white, 0.7);
+
+      line-height: 1.65;
+    }
+  }
+}
+
+.contact-faq-expand-enter-active,
+.contact-faq-expand-leave-active {
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.contact-faq-expand-enter-from,
+.contact-faq-expand-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+@media (max-width: 767px) {
+  .contact-faq {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+  }
+
+  .contact-faq-item {
+    &__question {
+      padding: $space-md;
+
+      span:first-child {
+        font-size: 1.05rem;
+      }
+    }
+
+    &__answer {
+      padding:
+        0
+        $space-md
+        $space-md;
+    }
+  }
+}

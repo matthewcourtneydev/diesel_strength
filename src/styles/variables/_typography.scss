@@ -1,13 +1,14 @@
 $font-heading: 'Oswald', 'Arial Narrow', sans-serif;
 $font-body: 'Inter', Arial, sans-serif;
 
-$text-xs: 0.75rem;
-$text-sm: 0.875rem;
+$text-xs: 0.7rem;
+$text-sm: 0.82rem;
 $text-base: 1rem;
-$text-md: 1.125rem;
-$text-lg: 1.25rem;
-$text-xl: 1.5rem;
-$text-2xl: 2rem;
-$text-3xl: 3rem;
-$text-4xl: 4rem;
-$text-hero: clamp(3rem, 7vw, 6.5rem);
+$text-md: 1.02rem;
+$text-lg: 1.08rem;
+$text-xl: 1.28rem;
+$text-2xl: 1.7rem;
+$text-3xl: 2.35rem;
+$text-4xl: 3rem;
+
+$text-hero: clamp(2.35rem, 4vw, 4.15rem);

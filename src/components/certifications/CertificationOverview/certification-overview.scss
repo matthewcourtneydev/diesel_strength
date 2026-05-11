@@ -1,0 +1,128 @@
+@use '../../../styles/variables/colors' as *;
+@use '../../../styles/variables/spacing' as *;
+@use '../../../styles/variables/typography' as *;
+
+.certification-overview {
+  &__heading {
+    max-width: 66rem;
+    margin-bottom: $space-2xl;
+
+    h2 {
+      margin-top: $space-sm;
+
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.92;
+    }
+
+    p:last-child {
+      max-width: 44rem;
+      margin-top: $space-lg;
+
+      color: rgba($white, 0.72);
+
+      font-size: $text-lg;
+      line-height: 1.6;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: $space-lg;
+
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.cert-difference-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 21rem;
+
+  padding: $space-xl;
+
+  border: 1px solid rgba($white, 0.08);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba($diesel-red, 0.1),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      rgba($graphite, 0.96),
+      rgba($near-black, 1)
+    );
+
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 3px;
+
+    background: $diesel-red;
+
+    transform: scaleY(0);
+    transform-origin: bottom;
+
+    transition: transform 240ms ease;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+
+  &__number {
+    margin-bottom: $space-xl;
+
+    color: rgba($diesel-red, 0.85);
+
+    font-family: $font-heading;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 0.85;
+  }
+
+  h3 {
+    margin-bottom: $space-md;
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 0.95;
+  }
+
+  p {
+    color: rgba($white, 0.66);
+
+    font-size: $text-sm;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 767px) {
+  .certification-overview {
+    &__heading {
+      margin-bottom: $space-xl;
+    }
+
+    &__grid {
+      gap: $space-md;
+    }
+  }
+
+  .cert-difference-card {
+    min-height: auto;
+    padding: $space-lg;
+
+    &__number {
+      margin-bottom: $space-lg;
+    }
+  }
+}
