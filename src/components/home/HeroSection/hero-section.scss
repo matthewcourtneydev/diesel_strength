@@ -37,11 +37,10 @@
       opacity: 0.82;
       letter-spacing: 0.12em;
     }
+    å .page-hero__content h1 {
+      max-width: 90svw;
 
-    .page-hero__content h1 {
-      max-width: 22rem;
-
-      font-size: clamp(3.75rem, 12vw, 4.85rem);
+      font-size: clamp(2.85rem, 14vw, 4.15rem);
       line-height: 0.9;
       letter-spacing: -0.045em;
     }
@@ -49,7 +48,7 @@
     .page-hero__description {
       max-width: 80vw;
       width: 80vw;
-    
+
       font-size: 1.05rem;
       line-height: 1.45;
     }
