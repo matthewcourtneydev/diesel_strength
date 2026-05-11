@@ -228,6 +228,8 @@
     &__inner {
       padding-top: 8rem;
       padding-bottom: 5rem;
+      display: block;
+      grid-template-columns: 1fr;
     }
 
     &__content {
