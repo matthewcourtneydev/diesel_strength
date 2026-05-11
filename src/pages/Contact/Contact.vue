@@ -49,5 +49,5 @@ import ContactMethods from '../../components/contact/ContactMethods/ContactMetho
 import ContactForm from '../../components/contact/ContactForm/ContactForm.vue'
 import ContactFAQ from '../../components/contact/ContactFAQ/ContactFAQ.vue'
 
-import './contact.scss'
+import './Contact.scss'
 </script>

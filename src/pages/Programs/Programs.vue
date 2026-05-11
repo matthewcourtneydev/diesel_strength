@@ -50,7 +50,7 @@ import GoalSolutions from '../../components/programs/GoalSolutions/GoalSolutions
 import FreeResources from '../../components/programs/FreeResources/FreeResources.vue'
 import ProgramGuideCTA from '../../components/programs/ProgramGuideCTA/ProgramGuideCTA.vue'
 
-import './programs.scss'
+import './Programs.scss'
 
 const activeCategory = ref('All')
 

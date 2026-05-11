@@ -48,5 +48,5 @@ import SubscribeForm from '../../components/subscribe/SubscribeForm/SubscribeFor
 import ContentPreview from '../../components/subscribe/ContentPreview/ContentPreview.vue'
 import SubscriberQuotes from '../../components/subscribe/SubscriberQuotes/SubscriberQuotes.vue'
 
-import './subscribe.scss'
+import './Subscribe.scss'
 </script>
