@@ -57,7 +57,7 @@ import FeaturedEpisode from '../../components/podcast/FeaturedEpisode/FeaturedEp
 import MediaTopics from '../../components/podcast/MediaTopics/MediaTopics.vue'
 import EpisodeGrid from '../../components/podcast/EpisodeGrid/EpisodeGrid.vue'
 
-import './podcast.scss'
+import './Podcast.scss'
 
 const activeTopic = ref('All Episodes')
 </script>

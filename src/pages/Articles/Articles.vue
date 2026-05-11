@@ -57,7 +57,7 @@ import ArticleCategories from '../../components/articles/ArticleCategories/Artic
 import ArticleGrid from '../../components/articles/ArticleGrid/ArticleGrid.vue'
 import PopularTopics from '../../components/articles/PopularTopics/PopularTopics.vue'
 
-import './articles.scss'
+import './Articles.scss'
 
 const activeCategory = ref('All Articles')
 </script>

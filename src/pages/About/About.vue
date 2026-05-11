@@ -55,5 +55,5 @@ import EcosystemTimeline from '../../components/about/EcosystemTimeline/Ecosyste
 import AboutCredentials from '../../components/about/AboutCredentials/AboutCredentials.vue'
 import MediaAuthority from '../../components/about/MediaAuthority/MediaAuthority.vue'
 
-import './about.scss'
+import './About.scss'
 </script>

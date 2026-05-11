@@ -57,5 +57,5 @@ import SeminarExperience from '../../components/certifications/SeminarExperience
 import FounderSpotlight from '../../components/certifications/FounderSpotlight/FounderSpotlight.vue'
 import CertificationFAQ from '../../components/certifications/CertificationFAQ/CertificationFAQ.vue'
 
-import './certifications.scss'
+import './Certifications.scss'
 </script>

@@ -40,6 +40,6 @@ import NewsletterCTA from "../../components/home/NewsletterCTA/NewsletterCTA.vue
 import TrustedBy from "../../components/home/TrustedBy/TrustedBy.vue";
 import InstagramFeed from "../../components/home/InstagramFeed/InstagramFeed.vue";
 
-import "./home.scss";
+import "./Home.scss";
 </script>
 
