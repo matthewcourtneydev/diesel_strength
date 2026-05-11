@@ -62,6 +62,18 @@
    .home-hero__secondary {
      display: none;
    }
+   .eyebrow {
+      width: 60%;
+   }
+   .page-hero__actions {
+      align-items: flex-start;
+
+      .btn {
+        width: auto;
+        min-width: 13.5rem;
+        padding-inline: 1.35rem;
+      }
+    }
  }
 }
 
