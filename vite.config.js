@@ -8,7 +8,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @use "@/styles/foundation.scss" as *;
+          @use "/src/styles/foundation.scss" as *;
         `,
       },
     },
